@@ -10,5 +10,21 @@ setup: win8.1, docker-tool-box, babun
 install the awscli with babun:
 pip install awscli
 
+docker-machine vpc:sg-92e330f9
 
+
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
+
+
+
+
+sources:
+https://docs.docker.com/machine/drivers/aws/#default-amis
+https://guides.github.com/features/mastering-markdown/
 
