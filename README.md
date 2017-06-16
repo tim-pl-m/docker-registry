@@ -17,7 +17,7 @@ ubunut-image: ami-597c8236
 
 ```shell
 # create the instance
-docker-machine create -d amazonec2 --amazonec2-region eu-central-1 --amazonec2-ami ami-597c8236 --amazonec2-ssh-user ubuntu docker-registry
+docker-machine create -d amazonec2 --amazonec2-region eu-central-1 \--amazonec2-ami ami-597c8236 --amazonec2-ssh-user ubuntu \docker-registry
 
 ```
 
