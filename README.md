@@ -1,15 +1,15 @@
 # docker-registry
 ec2 without ecs
 
-setup: win8.1, docker-tool-box, babun
+setup: win8.1, docker-tool-box, babun on windows/macOS
 
 -create an aws-account
 -get aws-credentials
 -create a vpc(virtual private cloud, a virtual network/firewall) and a security group that fits your requirements
-(i.e inbound port 22 and 2376 open; outbound all; for docker-machine )
+(i.e inbound ports 22(ssh), 2376(tcp), 5000(tcp) open; outbound all; name it i.e. docker-registry)
 
 ```shell
-# install the awscli with babun
+# install the awscli
 pip install awscli
 ```
 
@@ -18,7 +18,7 @@ ubunut-image: ami-597c8236
 ```shell
 # create the instance
 docker-machine create -d amazonec2 --amazonec2-region eu-central-1 \
---amazonec2-ami ami-597c8236 --amazonec2-ssh-user ubuntu \
+--amazonec2-ami ami-597c8236  --amazonec2-security-group docker-registry --amazonec2-ssh-user ubuntu \
 docker-registry
 # tunnel to it
 docker-machine ssh docker-registry
