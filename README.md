@@ -50,8 +50,8 @@ curl <ip of your node>:5000/v2/_catalog
 docker pull <ip of your node>:5000/ubuntu
 ```
 
-```shell
 stop and start:
+```shell
 docker-machine stop docker-registry
 #sleep, wake up
 docker-machine start docker-registry
