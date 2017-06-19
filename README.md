@@ -29,28 +29,39 @@ docker ps
 
 docker run -d -p 5000:5000 --restart=always --name registry registry:2
 docker pull ubuntu && docker tag ubuntu localhost:5000/ubuntu
+# registry should be empty
+curl 127.0.0.1:5000/v2/_catalog
 docker push localhost:5000/ubuntu
 docker pull localhost:5000/ubuntu
+# registry should contain the ubuntu-image now
+curl 127.0.0.1:5000/v2/_catalog
 ```
+lets test the (so far insecure) registry
+on mac: open your docker preferences and the <ip of your node>:5000
+under daemon tab
 
-open a new babun-shell:
+now open a new shell:
 ```shell
 docker-machine ls
 NAME               ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER        ERRORS
 docker-registry4   -        amazonec2    Running   tcp://<ip of your node>:2376            v17.05.0-ce
+# lets check if the registry is reachable
+curl <ip of your node>:5000/v2/_catalog
 docker pull <ip of your node>:5000/ubuntu
-
-now lets secure it by restrictiong access:
-```shell
-# (we are still in admin mode)
-
-
 ```
 
+```shell
 stop and start:
 docker-machine stop docker-registry
 #sleep, wake up
 docker-machine start docker-registry
+```
+
+now lets secure it by restrictiong access:
+```shell
+# (we are still in admin mode)
+wip
+```
 
 clean up:
 ```shell
